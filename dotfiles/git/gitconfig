@@ -1,0 +1,22 @@
+[user]
+	name = Sias Mey
+	email = siasmey@gmail.com
+	signingkey = /Users/meysi/.ssh/id_ed25519_sk.pub
+[core]
+	editor = nvim +startinsert
+	autocrlf = false
+	eol = lf
+        hooksPath = ~/.githooks
+[init]
+	defaultBranch = trunk
+[gpg]
+	program = gpg
+	format = ssh
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[commit]
+	gpgsign = false
+[diff]
+        tool = nvimdiff
