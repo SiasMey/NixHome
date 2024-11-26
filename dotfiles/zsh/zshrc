@@ -1,19 +1,9 @@
-. "$HOME/.cargo/env"
-
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-# Keep an eye on this if pyenv starts messing around
-# . $HOME/bin/pyenv-init.sh
-
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
-eval "$(keychain --eval --noinherit -q)"
-# source <(kubectl completion zsh)
 
-zstyle ':completion:*:*:git:*' script ~/.config/zsh/completions/git-completions.bash
-fpath=(~/.zsh $fpath)
+#zstyle ':completion:*:*:git:*' script ~/.config/zsh/completions/git-completions.bash
+#fpath=(~/.zsh $fpath)
 
 bindkey -e
 bindkey "^[[1~" beginning-of-line
@@ -23,17 +13,10 @@ bindkey "^[[3~" delete-char
 export EDITOR="nvim"
 export VISUAL="nvim"
 export FZF_DEFAULT_OPTS="--bind=ctrl-y:accept,ctrl-n:abort,ctrl-l:up,ctrl-h:down"
-export FURY_AUTH_PULL="OW7NC-hwLiKtuvafayctbDUT1wOkTFJLU"
-export PATH="${HOME}/go/bin:${PATH}"
-export PATH="${HOME}/bin:${PATH}"
 
 alias vi=nvim
 alias vim=nvim
 alias cat='bat --paging=never'
-alias ls=eza
-
-alias start-zscaler="open -a /Applications/Zscaler/Zscaler.app --hide; sudo find /Library/LaunchDaemons -name '*zscaler*' -exec launchctl load {} \;"
-alias kill-zscaler="find /Library/LaunchAgents -name '*zscaler*' -exec launchctl unload {} \;;sudo find /Library/LaunchDaemons -name '*zscaler*' -exec launchctl unload {} \;"
 
 atuin-setup() {
     if ! which atuin &> /dev/null; then return 1; fi
@@ -76,10 +59,3 @@ atuin-setup
 
 # new shell without tmux, run switcher
 if [[ -z $TMUX ]]; then ts; fi
-
-# bun completions
-[ -s "/Users/meysi/.bun/_bun" ] && source "/Users/meysi/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

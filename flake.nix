@@ -10,7 +10,7 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: let
-    arch = "aarch64-darwin"; # or aarch64-darwin
+    arch = "x86_64-linux";
   in {
     defaultPackage.${arch} =
       home-manager.defaultPackage.${arch};

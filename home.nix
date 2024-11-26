@@ -4,7 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "meysi";
-  home.homeDirectory = "/Users/meysi";
+  home.homeDirectory = "/home/meysi";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -20,8 +20,6 @@
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    # pkgs.hello
-    pkgs.just
     pkgs.python3Minimal
     pkgs.uv
     pkgs.terraform
@@ -29,7 +27,16 @@
     pkgs.alacritty
     pkgs.atuin
     pkgs.neovim
-    pkgs.tmux
+    pkgs.just
+    pkgs.kubectl
+    pkgs.awscli2
+    pkgs.mermaid-cli
+    pkgs.presenterm
+    pkgs.dust
+    pkgs.gitui
+    pkgs.rustc
+    pkgs.cargo
+    pkgs.zig
 
     # # Language Servers
     pkgs.nil
@@ -44,10 +51,19 @@
     pkgs.lua-language-server
     pkgs.openscad-lsp
     pkgs.rust-analyzer
+    pkgs.basedpyright
 
     # # Language tools
     pkgs.stylua
 
+    # fonts
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
+    # # gaming
+    pkgs.mangohud
+    pkgs.protonup
+    pkgs.heroic
+    pkgs.lutris
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -71,6 +87,8 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".config/kitty".source = ./dotfiles/kitty;
+    #".config/nvim".source = ./dotfiles/nvim;
+    ".config/aerospace".source = ./dotfiles/aerospace;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -78,7 +96,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
+ 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -96,8 +114,13 @@
   #  /etc/profiles/per-user/meysi/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
+
+  home.sessionPath = ["\${HOME}/bin"];
+    
+  
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -140,5 +163,39 @@
 
   programs.ripgrep = {
     enable = true;
+  };
+
+  programs.fd = {
+    enable = true;
+  };
+
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
+
+  programs.nh = {
+    enable = true;
+  };
+
+  programs.jq = {
+    enable = true;
+  };
+
+  programs.k9s = {
+    enable = true;
+  };
+
+  programs.tealdeer = {
+    enable = true;
+  };
+
+  programs.go = {
+    enable = true;
+  };
+
+  progams.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
   };
 }
