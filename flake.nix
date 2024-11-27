@@ -9,16 +9,20 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: let
-    arch = "x86_64-linux";
-  in {
-    defaultPackage.${arch} =
-      home-manager.defaultPackage.${arch};
+  outputs =
+    { nixpkgs, home-manager, ... }:
+    let
+      arch = "x86_64-linux";
+    in
+    {
+      defaultPackage.${arch} = home-manager.defaultPackage.${arch};
 
-    homeConfigurations.meysi =
-      home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.meysi = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${arch};
-        modules = [ ./home.nix ./unfree.nix ];
+        modules = [
+          ./home.nix
+          ./unfree.nix
+        ];
       };
     };
 }

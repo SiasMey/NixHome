@@ -36,6 +36,7 @@
     pkgs.rustc
     pkgs.cargo
     pkgs.zig
+    pkgs.nixfmt-rfc-style
 
     # # Language Servers
     pkgs.nil
@@ -94,7 +95,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
- 
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -121,7 +122,10 @@
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   programs.fzf = {
@@ -130,7 +134,7 @@
 
   programs.git = {
     enable = true;
-    includes = [{ path = "./dotfiles/git/gitconfig"; }];
+    includes = [ { path = "./dotfiles/git/gitconfig"; } ];
   };
 
   programs.direnv = {
@@ -193,82 +197,82 @@
     extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
   };
 
-programs.neovim = {
-  enable = true;
-  plugins = with pkgs.vimPlugins; [
-    git-worktree-nvim
-    neogen
-    barbecue-nvim
-    cmp-buffer
-    cmp-cmdline
-    cmp_luasnip
-    cmp-nvim-lsp
-    cmp-nvim-lsp-signature-help
-    cmp-nvim-lua
-    cmp-path
-    dressing-nvim
-    harpoon2
-    indent-blankline-nvim
-    lazy-nvim
-    leap-nvim
-    leap-ast-nvim
-    lspkind-nvim
-    lualine-lsp-progress
-    lualine-nvim
-    luasnip
-    nvim-treesitter.withAllGrammars
-    nvim-treesitter-context
-    nvim-treesitter-textobjects
-    nvim-treesitter-parsers.just
-    nvim-nio
-    nvim-navic
-    nvim-lspconfig
-    mini-nvim
-    tokyonight-nvim
-    oil-nvim
-    refactoring-nvim
-    ssr-nvim
-    telescope-nvim
-    telescope-lsp-handlers-nvim
-    neotest
-    neotest-python
-    neotest-rust
-    neotest-go
-    lazydev-nvim
-    nvim-notify
-    gitsigns-nvim
-  ];
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      git-worktree-nvim
+      neogen
+      barbecue-nvim
+      cmp-buffer
+      cmp-cmdline
+      cmp_luasnip
+      cmp-nvim-lsp
+      cmp-nvim-lsp-signature-help
+      cmp-nvim-lua
+      cmp-path
+      dressing-nvim
+      harpoon2
+      indent-blankline-nvim
+      lazy-nvim
+      leap-nvim
+      leap-ast-nvim
+      lspkind-nvim
+      lualine-lsp-progress
+      lualine-nvim
+      luasnip
+      nvim-treesitter.withAllGrammars
+      nvim-treesitter-context
+      nvim-treesitter-textobjects
+      nvim-treesitter-parsers.just
+      nvim-nio
+      nvim-navic
+      nvim-lspconfig
+      mini-nvim
+      tokyonight-nvim
+      oil-nvim
+      refactoring-nvim
+      ssr-nvim
+      telescope-nvim
+      telescope-lsp-handlers-nvim
+      neotest
+      neotest-python
+      neotest-rust
+      neotest-go
+      lazydev-nvim
+      nvim-notify
+      gitsigns-nvim
+    ];
 
-  extraLuaConfig = ''
-  require("config.options")
-  require("config.keymaps")
-  require("config.commands")
+    extraLuaConfig = ''
+      require("config.options")
+      require("config.keymaps")
+      require("config.commands")
 
-  require("lazy").setup({
-    performance = {
-      reset_packpath = false,
-      rtp = {
-          reset = false,
-        }
-      },
-    dev = {
-      path = "/nix/store/v1zjlxsvvcspb3dwydp8v5iq3myfwknd-vim-pack-dir/pack/myNeovimPackages/start",
-      patterns = {""}
-    },
-    spec = {
-      { import = "plugins" }
-    },
-    install = {
-      -- Safeguard in case we forget to install a plugin with Nix
-      missing = true,
-    },
-  })
-  '';
-};
+      require("lazy").setup({
+        performance = {
+          reset_packpath = false,
+          rtp = {
+              reset = false,
+            }
+          },
+        dev = {
+          path = "/nix/store/v1zjlxsvvcspb3dwydp8v5iq3myfwknd-vim-pack-dir/pack/myNeovimPackages/start",
+          patterns = {""}
+        },
+        spec = {
+          { import = "plugins" }
+        },
+        install = {
+          -- Safeguard in case we forget to install a plugin with Nix
+          missing = true,
+        },
+      })
+    '';
+  };
 
-xdg.configFile."nvim" = {
-  recursive = true;
-  source = ./dotfiles/nvim;
-};
-  
+  xdg.configFile."nvim" = {
+    recursive = true;
+    source = ./dotfiles/nvim;
+  };
+
 }

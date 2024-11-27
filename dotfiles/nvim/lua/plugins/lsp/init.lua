@@ -80,6 +80,13 @@ return {
         ruff = {
         },
         nil_ls = {
+          settings = {
+            ['nil'] = {
+              formatting = {
+                command = { "nixfmt" },
+              },
+            },
+          },
         },
         gopls = {
           settings = {
