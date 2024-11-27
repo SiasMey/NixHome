@@ -83,7 +83,7 @@ return {
           { name = "buffer",                 group_index = 1, max_item_count = 3, keyword_length = 5 },
           { name = "path",                   group_index = 1, max_item_count = 3 },
           { name = "luasnip",                group_index = 1, max_item_count = 5 },
-          { name = "nvim_lua",               group_index = 2, max_item_count = 15 },
+          { name = "lazydev",                group_index = 2, max_item_count = 15 },
           { name = 'nvim_lsp_signature_help' }
         },
         snippet = {

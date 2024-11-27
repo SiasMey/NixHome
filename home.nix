@@ -26,7 +26,6 @@
     pkgs.kitty
     pkgs.alacritty
     pkgs.atuin
-    pkgs.neovim
     pkgs.just
     pkgs.kubectl
     pkgs.awscli2
@@ -87,7 +86,6 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".config/kitty".source = ./dotfiles/kitty;
-    #".config/nvim".source = ./dotfiles/nvim;
     ".config/aerospace".source = ./dotfiles/aerospace;
 
     # # You can also set the file content immediately.
@@ -117,10 +115,6 @@
     EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
-
-  home.sessionPath = ["\${HOME}/bin"];
-    
-  
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -194,8 +188,87 @@
     enable = true;
   };
 
-  progams.tmux = {
+  programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
   };
+
+programs.neovim = {
+  enable = true;
+  plugins = with pkgs.vimPlugins; [
+    git-worktree-nvim
+    neogen
+    barbecue-nvim
+    cmp-buffer
+    cmp-cmdline
+    cmp_luasnip
+    cmp-nvim-lsp
+    cmp-nvim-lsp-signature-help
+    cmp-nvim-lua
+    cmp-path
+    dressing-nvim
+    harpoon2
+    indent-blankline-nvim
+    lazy-nvim
+    leap-nvim
+    leap-ast-nvim
+    lspkind-nvim
+    lualine-lsp-progress
+    lualine-nvim
+    luasnip
+    nvim-treesitter.withAllGrammars
+    nvim-treesitter-context
+    nvim-treesitter-textobjects
+    nvim-treesitter-parsers.just
+    nvim-nio
+    nvim-navic
+    nvim-lspconfig
+    mini-nvim
+    tokyonight-nvim
+    oil-nvim
+    refactoring-nvim
+    ssr-nvim
+    telescope-nvim
+    telescope-lsp-handlers-nvim
+    neotest
+    neotest-python
+    neotest-rust
+    neotest-go
+    lazydev-nvim
+    nvim-notify
+    gitsigns-nvim
+  ];
+
+  extraLuaConfig = ''
+  require("config.options")
+  require("config.keymaps")
+  require("config.commands")
+
+  require("lazy").setup({
+    performance = {
+      reset_packpath = false,
+      rtp = {
+          reset = false,
+        }
+      },
+    dev = {
+      path = "/nix/store/v1zjlxsvvcspb3dwydp8v5iq3myfwknd-vim-pack-dir/pack/myNeovimPackages/start",
+      patterns = {""}
+    },
+    spec = {
+      { import = "plugins" }
+    },
+    install = {
+      -- Safeguard in case we forget to install a plugin with Nix
+      missing = true,
+    },
+  })
+  '';
+};
+
+xdg.configFile."nvim" = {
+  recursive = true;
+  source = ./dotfiles/nvim;
+};
+  
 }

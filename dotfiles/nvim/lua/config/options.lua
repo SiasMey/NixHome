@@ -49,11 +49,6 @@ opt.hlsearch = false
 opt.number = true          -- Print line number
 opt.relativenumber = false -- Relative line numbers
 
-if vim.fn.has("nvim-0.9.0") == 1 then
-  opt.splitkeep = "screen"
-  opt.shortmess:append({ C = true })
-end
-
 if false then
   opt.foldmethod = "expr"
   opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -68,12 +63,6 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.python_host_skip_check = 1
-vim.g.python3_host_skip_check = 1
-vim.g.python3_host_prog = "/Users/meysi/.pyenv/versions/3.11.4/bin/python3"
-vim.g.python_host_prog = "/Users/meysi/.pyenv/versions/3.11.4/bin/python"
 
 vim.diagnostic.config({
   virtual_text = false

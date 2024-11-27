@@ -12,20 +12,23 @@ end
 return {
   -- lspconfig
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    init = function()
+      require("lazydev").setup(
+        {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          }
+        }
+      )
+    end
+  },
+  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      {
-        "folke/neoconf.nvim",
-        cmd = "Neoconf",
-        config = true
-      },
-      {
-        "folke/neodev.nvim",
-        opts = { experimental = { pathStrict = true } }
-      },
-      "hrsh7th/cmp-nvim-lsp",
-    },
     ---@class PluginLspOpts
     opts = {
       -- options for vim.diagnostic.config()

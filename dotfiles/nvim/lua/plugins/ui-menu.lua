@@ -26,21 +26,16 @@ return {
   },
   {
     "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    opts = function(package)
-      -- configurations go here
-      _ = package
+    init = function()
+      require("barbecue").setup(
+        { create_autocmd = false }
+      )
       vim.api.nvim_create_autocmd({
         "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
+        "WinResized",
         "BufWinEnter",
         "CursorHold",
         "InsertLeave",
-
         -- include these if you have set `show_modified` to `true`
         "BufWritePost",
         "TextChanged",
@@ -51,8 +46,7 @@ return {
           require("barbecue.ui").update()
         end,
       })
-      return { create_autocmd = false }
-    end,
+    end
   },
   --[[ {
     "folke/noice.nvim",
