@@ -20,16 +20,24 @@
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    # pkgs.hello
-    pkgs.just
+    pkgs.neovim
     pkgs.python3Minimal
     pkgs.uv
     pkgs.terraform
     pkgs.kitty
     pkgs.alacritty
     pkgs.atuin
-    pkgs.neovim
     pkgs.tmux
+    pkgs.just
+    pkgs.kubectl
+    pkgs.awscli2
+    pkgs.mermaid-cli
+    pkgs.presenterm
+    pkgs.dust
+    pkgs.gitui
+    pkgs.aerospace
+    pkgs.rustc
+    pkgs.cargo
 
     # # Language Servers
     pkgs.nil
@@ -44,6 +52,7 @@
     pkgs.lua-language-server
     pkgs.openscad-lsp
     pkgs.rust-analyzer
+    pkgs.basedpyright
 
     # # Language tools
     pkgs.stylua
@@ -71,6 +80,8 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".config/kitty".source = ./dotfiles/kitty;
+    ".config/nvim".source = ./dotfiles/nvim;
+    ".config/aerospace".source = ./dotfiles/aerospace;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -97,6 +108,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    FLAKE = "/Users/meysi/.config/home-manager";
   };
 
   # Let Home Manager install and manage itself.
@@ -139,6 +151,35 @@
   };
 
   programs.ripgrep = {
+    enable = true;
+  };
+
+  programs.fd = {
+    enable = true;
+  };
+
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
+
+  programs.nh = {
+    enable = true;
+  };
+
+  programs.jq = {
+    enable = true;
+  };
+
+  programs.k9s = {
+    enable = true;
+  };
+
+  programs.tealdeer = {
+    enable = true;
+  };
+
+  programs.go = {
     enable = true;
   };
 }
