@@ -244,35 +244,14 @@
     ];
 
     extraLuaConfig = ''
-      require("config.options")
-      require("config.keymaps")
-      require("config.commands")
-
-      require("lazy").setup({
-        performance = {
-          reset_packpath = false,
-          rtp = {
-              reset = false,
-            }
-          },
-        dev = {
-          path = "/nix/store/v1zjlxsvvcspb3dwydp8v5iq3myfwknd-vim-pack-dir/pack/myNeovimPackages/start",
-          patterns = {""}
-        },
-        spec = {
-          { import = "plugins" }
-        },
-        install = {
-          -- Safeguard in case we forget to install a plugin with Nix
-          missing = true,
-        },
-      })
+      require("config")
+      require("plugins")
     '';
   };
 
   xdg.configFile."nvim" = {
     recursive = true;
-    source = ./dotfiles/nvim;
+    source = ./dotfiles/nix-nvim;
   };
 
 }
