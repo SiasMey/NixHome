@@ -104,7 +104,7 @@
 
   programs.git = {
     enable = true;
-    includes = [ { path = "./dotfiles/git/gitconfig"; } ];
+    extraConfig = builtins.readFile ./dotfiles/git/gitconfig;
   };
 
   programs.direnv = {
