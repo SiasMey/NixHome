@@ -22,6 +22,8 @@
         modules = [
           ./home.nix
           ./unfree.nix
+          ./editor.nix
+          ./hyprland.nix
         ];
       };
     };

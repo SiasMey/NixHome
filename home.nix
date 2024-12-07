@@ -15,6 +15,10 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  fonts.fontconfig = {
+    enable = true;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -37,46 +41,17 @@
     pkgs.cargo
     pkgs.zig
     pkgs.nixfmt-rfc-style
-
-    # # Language Servers
-    pkgs.nil
-    pkgs.golangci-lint-langserver
-    pkgs.taplo
-    pkgs.yaml-language-server
-    pkgs.terraform-ls
-    pkgs.bash-language-server
-    pkgs.efm-langserver
-    pkgs.marksman
-    pkgs.gopls
-    pkgs.lua-language-server
-    pkgs.openscad-lsp
-    pkgs.rust-analyzer
-    pkgs.basedpyright
-
-    # # Language tools
-    pkgs.stylua
+    pkgs.fastfetch
 
     # fonts
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    pkgs.nerd-fonts.jetbrains-mono
 
     # # gaming
+    pkgs.gamescope
     pkgs.mangohud
     pkgs.protonup
-    pkgs.heroic
     pkgs.lutris
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    pkgs.webcord
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -113,7 +88,6 @@
   #  /etc/profiles/per-user/meysi/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
@@ -126,10 +100,6 @@
       "nix-command"
       "flakes"
     ];
-  };
-
-  programs.fzf = {
-    enable = true;
   };
 
   programs.git = {
@@ -156,14 +126,6 @@
   };
 
   programs.zoxide = {
-    enable = true;
-  };
-
-  programs.ripgrep = {
-    enable = true;
-  };
-
-  programs.fd = {
     enable = true;
   };
 
@@ -196,62 +158,4 @@
     enable = true;
     extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
   };
-
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      git-worktree-nvim
-      neogen
-      barbecue-nvim
-      cmp-buffer
-      cmp-cmdline
-      cmp_luasnip
-      cmp-nvim-lsp
-      cmp-nvim-lsp-signature-help
-      cmp-nvim-lua
-      cmp-path
-      dressing-nvim
-      harpoon2
-      indent-blankline-nvim
-      lazy-nvim
-      leap-nvim
-      leap-ast-nvim
-      lspkind-nvim
-      lualine-lsp-progress
-      lualine-nvim
-      luasnip
-      nvim-treesitter.withAllGrammars
-      nvim-treesitter-context
-      nvim-treesitter-textobjects
-      nvim-treesitter-parsers.just
-      nvim-nio
-      nvim-navic
-      nvim-lspconfig
-      mini-nvim
-      tokyonight-nvim
-      oil-nvim
-      refactoring-nvim
-      ssr-nvim
-      telescope-nvim
-      telescope-lsp-handlers-nvim
-      neotest
-      neotest-python
-      neotest-rust
-      neotest-go
-      lazydev-nvim
-      nvim-notify
-      gitsigns-nvim
-    ];
-
-    extraLuaConfig = ''
-      require("config")
-      require("plugins")
-    '';
-  };
-
-  xdg.configFile."nvim" = {
-    recursive = true;
-    source = ./dotfiles/nix-nvim;
-  };
-
 }
