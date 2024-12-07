@@ -40,8 +40,8 @@
     pkgs.rustc
     pkgs.cargo
     pkgs.zig
-    pkgs.nixfmt-rfc-style
     pkgs.fastfetch
+    pkgs.nushell
 
     # fonts
     pkgs.nerd-fonts.jetbrains-mono

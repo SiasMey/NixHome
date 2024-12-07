@@ -26,6 +26,9 @@
 
     # # Language tools
     pkgs.stylua
+    pkgs.nufmt
+    pkgs.nixfmt-rfc-style
+    pkgs.ast-grep
   ];
 
   programs.fzf = {
@@ -43,7 +46,6 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      git-worktree-nvim
       neogen
       barbecue-nvim
       cmp-buffer

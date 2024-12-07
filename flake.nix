@@ -12,13 +12,13 @@
   outputs =
     { nixpkgs, home-manager, ... }:
     let
-      arch = "x86_64-linux";
+      linux = "x86_64-linux";
     in
     {
-      defaultPackage.${arch} = home-manager.defaultPackage.${arch};
+      defaultPackage.${linux} = home-manager.defaultPackage.${linux};
 
       homeConfigurations.meysi = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${arch};
+        pkgs = nixpkgs.legacyPackages.${linux};
         modules = [
           ./home.nix
           ./unfree.nix
