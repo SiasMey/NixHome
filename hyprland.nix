@@ -1,69 +1,16 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = [
     pkgs.networkmanagerapplet
     pkgs.hyprshot
     pkgs.hyprpicker
   ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   programs.waybar = {
     enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        modules-left = [
-          "hyprland/workspaces"
-        ];
-        modules-center = [
-          "wlr/taskbar"
-        ];
-        modules-right = [
-          "temperature"
-          "tray"
-        ];
-      };
-      "hyprland/workspaces" = {
-        "format" = "<sub>{icon}</sub>{windows}";
-        "format-window-separator" = "|";
-        "window-rewrite-default" = "";
-        "window-rewrite" = {
-          "title<.*youtube.*>" = "";
-          "class<firefox>" = "";
-          "class<firefox> title<.*github.*>" = "";
-          "class<kitty>" = "";
-          "code" = "󰨞";
-        };
-      };
-      "wlr/taskbar" = {
-        "format" = "{icon}";
-        "icon-size" = 14;
-        "icon-theme" = "Numix-Circle";
-        "tooltip-format" = "{title}";
-        "on-click" = "activate";
-        "on-click-middle" = "close";
-        "ignore-list" = [ ];
-        "rewrite" = {
-          "Firefox Web Browser" = "Firefox";
-          "Kitty" = "Terminal";
-        };
-      };
-      "tray" = {
-        "icon-size" = 21;
-        "spacing" = 15;
-      };
-    };
-
   };
 
   programs.hyprlock = {
-    enable = true;
+    enable = false;
     settings = {
       general = {
         disable_loading_bar = true;
@@ -308,7 +255,6 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 20;

@@ -23,7 +23,7 @@ function M.on_attach(client, buffer)
   vim.keymap.set("n", "<c-m>", vim.lsp.buf.hover, opts)
   vim.keymap.set({ "n", "i" }, "<c-e>", vim.lsp.buf.signature_help, opts)
   vim.keymap.set({ "n", "v" }, "<space>c", vim.lsp.buf.code_action, opts)
-  vim.keymap.set({ "n", "v" }, "<space>f", require("plugins.lsp.format").format, opts)
+  vim.keymap.set({ "n", "v" }, "<space>f", function() require("conform").format({ bufnr = buffer }) end, opts)
   vim.keymap.set("n", "<space>n", vim.lsp.buf.rename, opts)
 
   if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then

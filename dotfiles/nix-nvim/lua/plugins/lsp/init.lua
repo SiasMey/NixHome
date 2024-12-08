@@ -10,15 +10,13 @@ local function on_attach(upstream_on_attach)
 end
 
 local setup_lazydev = function()
-  require("lazydev").setup(
-    {
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      }
-    }
-  )
+  require("lazydev").setup({
+    library = {
+      -- See the configuration section for more details
+      -- Load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  })
 end
 
 local servers = {
@@ -27,6 +25,12 @@ local servers = {
   },
   yamlls = {
     settings = {},
+  },
+  typos_lsp = {
+    init_options = {
+      -- config = "~/.config/typos"
+      diagnosticSeverity = "Error",
+    },
   },
   efm = {
     init_options = {
@@ -37,7 +41,7 @@ local servers = {
       codeAction = true,
       completion = false,
       linting = true,
-    }
+    },
   },
   rust_analyzer = {
     settings = {
@@ -48,11 +52,11 @@ local servers = {
       },
     },
   },
-  ruff = {
-  },
+  ruff = {},
+  nushell = {},
   nil_ls = {
     settings = {
-      ['nil'] = {
+      ["nil"] = {
         formatting = {
           command = { "nixfmt" },
         },
@@ -61,11 +65,10 @@ local servers = {
   },
   gopls = {
     settings = {
-      gofumpt = true
-    }
+      gofumpt = true,
+    },
   },
-  golangci_lint_ls = {
-  },
+  golangci_lint_ls = {},
   basedpyright = {
     settings = {
       basedpyright = {
@@ -73,9 +76,9 @@ local servers = {
         analysis = {
           autoImportCompletions = false,
           useLibraryCodeForTypes = true,
-        }
-      }
-    }
+        },
+      },
+    },
   },
   lua_ls = {
     settings = {
@@ -93,7 +96,6 @@ local servers = {
 
 local setup_nvim_lsp = function()
   on_attach(function(client, buffer)
-    require("plugins.lsp.format").on_attach(client, buffer)
     require("plugins.lsp.keymaps").on_attach(client, buffer)
     require("plugins.lsp.navigation").on_attach(client, buffer)
   end)
@@ -115,9 +117,41 @@ local setup_nvim_lsp = function()
   end
 end
 
+local function setup_conform()
+  require("conform").setup({
+    formatters_by_ft = {
+      lua = {
+        "stylua",
+      },
+      python = {
+        "ruff_fix",
+        "ruff_organize_imports",
+        "ruff_format",
+      },
+      go = {
+        "golines",
+        "goimports",
+        "gofumpt",
+      },
+      nix = { "alejandra" },
+      markdown = { "mdformat", "injected" },
+      just = { "just" },
+      terraform = { "terraform_fmt" },
+      toml = { "taplo" },
+      sh = { "beautysh" },
+      json = { "fixjson", "jq" },
+      yaml = { "yq" },
+    },
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+  })
+end
+
 local M = {}
 M.setup = function()
   setup_lazydev()
   setup_nvim_lsp()
+  setup_conform()
 end
 return M

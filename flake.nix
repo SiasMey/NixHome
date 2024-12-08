@@ -9,22 +9,25 @@
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }:
-    let
-      linux = "x86_64-linux";
-    in
-    {
-      defaultPackage.${linux} = home-manager.defaultPackage.${linux};
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
+    linux = "x86_64-linux";
+  in {
+    defaultPackage.${linux} = home-manager.defaultPackage.${linux};
 
-      homeConfigurations.meysi = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${linux};
-        modules = [
-          ./home.nix
-          ./unfree.nix
-          ./editor.nix
-          ./hyprland.nix
-        ];
-      };
+    homeConfigurations."meysi@foot1" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${linux};
+
+      modules = [
+        ./meysi_foot1.nix
+        ./home.nix
+        ./unfree.nix
+        ./editor.nix
+        ./hyprland.nix
+      ];
     };
+  };
 }

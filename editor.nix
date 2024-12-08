@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -23,12 +21,19 @@
     pkgs.openscad-lsp
     pkgs.rust-analyzer
     pkgs.basedpyright
+    pkgs.typos-lsp
 
     # # Language tools
     pkgs.stylua
     pkgs.nufmt
     pkgs.nixfmt-rfc-style
     pkgs.ast-grep
+    pkgs.beautysh
+    pkgs.alejandra
+    pkgs.mdformat
+    pkgs.yq
+    pkgs.jq
+    pkgs.fixjson
   ];
 
   programs.fzf = {
@@ -46,7 +51,6 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      neogen
       barbecue-nvim
       cmp-buffer
       cmp-cmdline
@@ -55,37 +59,39 @@
       cmp-nvim-lsp-signature-help
       cmp-nvim-lua
       cmp-path
+      conform-nvim
       dressing-nvim
+      gitsigns-nvim
+      grug-far-nvim
       harpoon2
       indent-blankline-nvim
-      leap-nvim
+      lazydev-nvim
       leap-ast-nvim
+      leap-nvim
       lspkind-nvim
       lualine-lsp-progress
       lualine-nvim
       luasnip
-      nvim-cmp
-      nvim-treesitter.withAllGrammars
-      nvim-treesitter-context
-      nvim-treesitter-textobjects
-      nvim-treesitter-parsers.just
-      nvim-nio
-      nvim-navic
-      nvim-lspconfig
       mini-nvim
-      tokyonight-nvim
-      oil-nvim
-      refactoring-nvim
-      ssr-nvim
-      telescope-nvim
-      telescope-lsp-handlers-nvim
+      neogen
       neotest
+      neotest-go
       neotest-python
       neotest-rust
-      neotest-go
-      lazydev-nvim
+      nvim-cmp
+      nvim-lspconfig
+      nvim-navic
+      nvim-nio
       nvim-notify
-      gitsigns-nvim
+      nvim-treesitter-context
+      nvim-treesitter-parsers.just
+      nvim-treesitter-textobjects
+      nvim-treesitter.withAllGrammars
+      oil-nvim
+      refactoring-nvim
+      telescope-lsp-handlers-nvim
+      telescope-nvim
+      tokyonight-nvim
     ];
 
     extraLuaConfig = ''
