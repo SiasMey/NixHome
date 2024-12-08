@@ -22,7 +22,11 @@
       pkgs = nixpkgs.legacyPackages.${linux};
 
       modules = [
-        ./meysi_foot1.nix
+        {
+          home.username = "meysi";
+          home.homeDirectory = "/home/meysi";
+        }
+        ./gaming.nix
         ./home.nix
         ./unfree.nix
         ./editor.nix

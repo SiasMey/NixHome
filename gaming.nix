@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  home.username = "meysi";
-  home.homeDirectory = "/home/meysi";
-
   home.packages = [
     # # gaming
     pkgs.gamescope
