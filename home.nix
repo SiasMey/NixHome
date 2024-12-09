@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   fonts.fontconfig = {
@@ -9,33 +10,28 @@
     EDITOR = "nvim";
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.python3Minimal
-    pkgs.uv
-    pkgs.terraform
-    pkgs.kitty
     pkgs.alacritty
     pkgs.atuin
-    pkgs.just
-    pkgs.kubectl
     pkgs.awscli2
-    pkgs.mermaid-cli
-    pkgs.presenterm
-    pkgs.dust
-    pkgs.gitui
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.zig
-    pkgs.fastfetch
-    pkgs.nushell
     pkgs.bottom
-
-    # fonts
+    pkgs.cargo
+    pkgs.dust
+    pkgs.earthly
+    pkgs.fastfetch
+    pkgs.gitui
+    pkgs.just
+    pkgs.kitty
+    pkgs.kubectl
+    pkgs.mermaid-cli
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nushell
+    pkgs.presenterm
+    pkgs.python3Minimal
+    pkgs.rustc
+    pkgs.terraform
+    pkgs.uv
+    pkgs.zig
   ];
 
   home.file = {
