@@ -24,7 +24,6 @@
     pkgs.kubectl
     pkgs.mermaid-cli
     pkgs.nerd-fonts.jetbrains-mono
-    pkgs.nushell
     pkgs.presenterm
     pkgs.python3Minimal
     pkgs.rustc
