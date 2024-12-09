@@ -9,16 +9,24 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: let
-    arch = "aarch64-darwin"; # or aarch64-darwin
-  in {
-    defaultPackage.${arch} =
-      home-manager.defaultPackage.${arch};
+  outputs =
+    { nixpkgs, home-manager, ... }:
+    {
+      defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
 
-    homeConfigurations.meysi =
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${arch};
-        modules = [ ./home.nix ./unfree.nix ];
+      homeConfigurations."meysi@HPE-LFL6NJ14KD" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+        modules = [
+          {
+            home.username = "meysi";
+            home.homeDirectory = "/Users/meysi";
+          }
+          ./home.nix
+          ./unfree.nix
+          ./editor.nix
+          ./mac.nix
+        ];
       };
     };
 }

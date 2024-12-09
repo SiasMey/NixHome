@@ -1,6 +1,9 @@
 return {
   {
     "ggandor/leap.nvim",
+    dependencies = {
+      "ggandor/leap-ast.nvim",
+    },
     init = function()
       local leap = require('leap')
       leap.opts.highlight_unlabeled_phase_one_targets = true
@@ -33,8 +36,8 @@ return {
         end,
       })
 
-      vim.keymap.set('n', 'm', '<Plug>(leap-forward)')
-      vim.keymap.set('n', 'M', '<Plug>(leap-backward)')
+      vim.keymap.set('n', 'm', '<Plug>(leap)')
+      vim.keymap.set('n', 'M', function() require('leap-ast').leap() end)
       vim.keymap.set('n', 'em', function() require('leap.remote').action() end)
     end
   },
