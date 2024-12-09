@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   home.packages = [
-    (import ./scripts/test-nix-script.nix {inherit pkgs;})
+    (import ./scripts/vhm.nix {inherit pkgs;})
   ];
 }
