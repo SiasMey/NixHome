@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   workspace-diagnostics = pkgs.vimUtils.buildVimPlugin {
     name = "workspace-diagnostics.nvim";
     src = pkgs.fetchFromGitHub {
@@ -10,14 +8,12 @@ let
       hash = "sha256-lBj4KUPmmhtpffYky/HpaTwY++d/Q9socp/Ys+4VeX0=";
     };
   };
-in
-{
+in {
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
   home.packages = [
-
     # # Language Servers
     # # Language tools
     pkgs.alejandra
