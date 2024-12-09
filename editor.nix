@@ -1,39 +1,54 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+
+let
+  workspace-diagnostics = pkgs.vimUtils.buildVimPlugin {
+    name = "workspace-diagnostics.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "artemave";
+      repo = "workspace-diagnostics.nvim";
+      rev = "573ff93c47898967efdfbc6587a1a39e3c2d365e";
+      hash = "sha256-lBj4KUPmmhtpffYky/HpaTwY++d/Q9socp/Ys+4VeX0=";
+    };
+  };
+in
+{
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
   home.packages = [
-    pkgs.uv
-    pkgs.gitui
 
     # # Language Servers
-    pkgs.nil
-    pkgs.golangci-lint-langserver
-    pkgs.taplo
-    pkgs.yaml-language-server
-    pkgs.terraform-ls
+    # # Language tools
+    pkgs.alejandra
+    pkgs.ast-grep
+    pkgs.basedpyright
     pkgs.bash-language-server
+    pkgs.beautysh
+    pkgs.d2
+    pkgs.earthlyls
     pkgs.efm-langserver
-    pkgs.marksman
+    pkgs.fixjson
+    pkgs.gitui
+    pkgs.golangci-lint-langserver
     pkgs.gopls
+    pkgs.jq
     pkgs.lua-language-server
+    pkgs.marksman
+    pkgs.mdformat
+    pkgs.mermaid-cli
+    pkgs.nil
+    pkgs.nixfmt-rfc-style
+    pkgs.nufmt
     pkgs.openscad-lsp
     pkgs.rust-analyzer
-    pkgs.basedpyright
-    pkgs.typos-lsp
-
-    # # Language tools
     pkgs.stylua
-    pkgs.nufmt
-    pkgs.nixfmt-rfc-style
-    pkgs.ast-grep
-    pkgs.beautysh
-    pkgs.alejandra
-    pkgs.mdformat
+    pkgs.taplo
+    pkgs.terraform-ls
+    pkgs.typos-lsp
+    pkgs.uv
+    pkgs.yaml-language-server
     pkgs.yq
-    pkgs.jq
-    pkgs.fixjson
   ];
 
   programs.fzf = {
@@ -61,6 +76,7 @@
       cmp-path
       conform-nvim
       dressing-nvim
+      git-conflict-nvim
       gitsigns-nvim
       grug-far-nvim
       harpoon2
@@ -92,6 +108,7 @@
       telescope-lsp-handlers-nvim
       telescope-nvim
       tokyonight-nvim
+      workspace-diagnostics
     ];
 
     extraLuaConfig = ''
