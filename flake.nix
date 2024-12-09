@@ -44,6 +44,7 @@
         ./unfree.nix
         ./editor.nix
         ./mac.nix
+        ./shell-scripts.nix
       ];
     };
   };
