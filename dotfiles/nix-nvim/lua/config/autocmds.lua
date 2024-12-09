@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "help",
     "neotest-summary",
     "neotest-output",
-    "fugitive"
+    "fugitive",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

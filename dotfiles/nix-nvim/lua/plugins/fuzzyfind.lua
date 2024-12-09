@@ -26,36 +26,15 @@ local function setup_telescope()
   vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true })
   vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true })
   -- vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { noremap = true, silent = true })
-  vim.keymap.set(
-    "n",
-    "<leader>dd",
-    "<cmd>Telescope diagnostics<cr>",
-    { noremap = true, silent = true }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>fws",
-    "<cmd>Telescope lsp_workspace_symbols<cr>",
-    { noremap = true, silent = true }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>fdf",
-    function() builtin.treesitter({ symbols = "function" }) end,
-    { noremap = true, silent = true }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>fdc",
-    function() builtin.treesitter({ symbols = "class" }) end,
-    { noremap = true, silent = true }
-  )
-  vim.keymap.set(
-    "n",
-    "zs",
-    "<cmd>Telescope spell_suggest<cr>",
-    { noremap = true, silent = true }
-  )
+  vim.keymap.set("n", "<leader>dd", "<cmd>Telescope diagnostics<cr>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>fws", "<cmd>Telescope lsp_workspace_symbols<cr>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>fdf", function()
+    builtin.treesitter({ symbols = "function" })
+  end, { noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>fdc", function()
+    builtin.treesitter({ symbols = "class" })
+  end, { noremap = true, silent = true })
+  vim.keymap.set("n", "zs", "<cmd>Telescope spell_suggest<cr>", { noremap = true, silent = true })
 end
 
 local M = {}

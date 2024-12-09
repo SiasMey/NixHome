@@ -49,15 +49,23 @@ vim.keymap.set("n", "<leader>xt", ":!chmod +x %<Enter>")
 vim.keymap.set("n", "<leader>n", ":Note<Enter>")
 vim.keymap.set("n", "<leader>t", ':silent !tmux display-popup -E -d $(pwd) -h 90\\% -w 90\\% "gitui"<Enter>')
 
-vim.keymap.set("n", "<leader>gc", ':silent !tmux display-popup -E -d $(pwd) "git commit"<Enter>',
-  { desc = "Git: Create git commit" })
-vim.keymap.set("n", "<leader>gs", ':!git status -s<Enter>', { desc = "Git: Show status" })
-vim.keymap.set("n", "<leader>gl", ':silent !tmux display-popup -E -d $(pwd) "git log -n 5 --pretty=medium"<Enter>',
-  { desc = "Git: Show log" })
+vim.keymap.set(
+  "n",
+  "<leader>gc",
+  ':silent !tmux display-popup -E -d $(pwd) "git commit"<Enter>',
+  { desc = "Git: Create git commit" }
+)
+vim.keymap.set("n", "<leader>gs", ":!git status -s<Enter>", { desc = "Git: Show status" })
+vim.keymap.set(
+  "n",
+  "<leader>gl",
+  ':silent !tmux display-popup -E -d $(pwd) "git log -n 5 --pretty=medium"<Enter>',
+  { desc = "Git: Show log" }
+)
 
-vim.keymap.set("n", "<space>b", ':silent make %<Enter>')
-vim.keymap.set("n", "<space>p", ':silent make .<Enter>')
-vim.keymap.set("n", "<space>tt", ':silent TmuxTest<Enter>')
+vim.keymap.set("n", "<space>b", ":silent make %<Enter>")
+vim.keymap.set("n", "<space>p", ":silent make .<Enter>")
+vim.keymap.set("n", "<space>tt", ":silent TmuxTest<Enter>")
 
 vim.keymap.set("n", "<M-j>", ":cprev<Enter>")
 vim.keymap.set("n", "<M-k>", ":cnext<Enter>")

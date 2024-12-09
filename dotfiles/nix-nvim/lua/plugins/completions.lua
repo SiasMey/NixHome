@@ -13,7 +13,7 @@ local setup_cmp = function()
           luasnip = "[LuaSnip]",
           nvim_lua = "[Lua]",
           copilot = "[Copilot]",
-          git = "[Git]"
+          git = "[Git]",
         },
       }),
     },
@@ -38,13 +38,13 @@ local setup_cmp = function()
       }),
     },
     sources = {
-      { name = "nvim_lsp",               group_index = 1, max_item_count = 25 },
-      { name = "git",                    group_index = 1, max_item_count = 5 },
-      { name = "buffer",                 group_index = 1, max_item_count = 3, keyword_length = 5 },
-      { name = "path",                   group_index = 1, max_item_count = 3 },
-      { name = "luasnip",                group_index = 1, max_item_count = 5 },
-      { name = "lazydev",                group_index = 2, max_item_count = 15 },
-      { name = 'nvim_lsp_signature_help' }
+      { name = "nvim_lsp", group_index = 1, max_item_count = 25 },
+      { name = "git", group_index = 1, max_item_count = 5 },
+      { name = "buffer", group_index = 1, max_item_count = 3, keyword_length = 5 },
+      { name = "path", group_index = 1, max_item_count = 3 },
+      { name = "luasnip", group_index = 1, max_item_count = 5 },
+      { name = "lazydev", group_index = 2, max_item_count = 15 },
+      { name = "nvim_lsp_signature_help" },
     },
     snippet = {
       expand = function(args)

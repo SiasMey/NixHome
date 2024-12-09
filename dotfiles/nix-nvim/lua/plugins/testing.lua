@@ -3,8 +3,7 @@ local setup_neotest = function()
   vim.diagnostic.config({
     virtual_text = {
       format = function(diagnostic)
-        local message =
-            diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+        local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
         return message
       end,
     },
@@ -19,7 +18,7 @@ local setup_neotest = function()
       require("neotest-go")({
         experimental = {
           test_table = false,
-        }
+        },
       }),
     },
     benchmark = {
@@ -76,7 +75,7 @@ local setup_neotest = function()
     log_level = 3,
     diagnostic = {
       enabled = false,
-      severity = 99
+      severity = 99,
     },
     output = {
       enabled = true,
