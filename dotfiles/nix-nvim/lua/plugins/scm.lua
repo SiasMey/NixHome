@@ -42,8 +42,13 @@ local function setup_gitsigns()
   })
 end
 
+local function setup_git_conflict()
+  require('git-conflict').setup()
+end
+
 local M = {}
 M.setup = function()
   setup_gitsigns()
+  setup_git_conflict()
 end
 return M

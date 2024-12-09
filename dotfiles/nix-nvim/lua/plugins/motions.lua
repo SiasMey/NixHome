@@ -21,8 +21,8 @@ local function setup_leap()
     end,
   })
 
-  vim.keymap.set('n', 'm', '<Plug>(leap-forward)')
-  vim.keymap.set('n', 'M', '<Plug>(leap-backward)')
+  vim.keymap.set('n', 'm', '<Plug>(leap)')
+  vim.keymap.set('n', 'M', function() require('leap-ast').leap() end)
   vim.keymap.set('n', 'em', function() require('leap.remote').action() end)
 end
 

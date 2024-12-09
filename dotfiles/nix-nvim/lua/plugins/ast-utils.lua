@@ -1,4 +1,4 @@
-local setup_ts_context = function()
+local function setup_ts_context()
   require("treesitter-context").setup({
     enable = true,
     max_lines = 0,
@@ -13,7 +13,7 @@ local setup_ts_context = function()
   })
 end
 
-local setup_treesitter = function()
+local function setup_treesitter()
   require("nvim-treesitter.configs").setup({
     auto_install = false,
     ensure_installed = {},
@@ -92,7 +92,7 @@ local setup_treesitter = function()
   })
 end
 
-local setup_refactoring = function()
+local function setup_refactoring()
   require('refactoring').setup({
     -- prompt for return type
     prompt_func_return_type = {
@@ -107,7 +107,7 @@ local setup_refactoring = function()
   })
 end
 
-local setup_mini_ai = function()
+local function setup_mini_ai()
   local spec_treesitter = require('mini.ai').gen_spec.treesitter
   require('mini.ai').setup(
     {
@@ -152,12 +152,41 @@ local setup_mini_ai = function()
   )
 end
 
-local setup_indent_blankline = function()
+local function setup_indent_blankline()
   require("ibl").setup({
     exclude = {
       filetypes = { "help", "alpha", "dashboard", "neo-tree", "trouble", "lazy" },
     },
   })
+end
+
+local function setup_grug_far()
+  require('grug-far').setup({
+    {
+      astgrep = {
+        path = 'sg',
+        extraArgs = '',
+        placeholders = {
+          enabled = true,
+
+          search = 'ex: $A && $A()   foo.bar($$$ARGS)   $_FUNC($_FUNC)',
+          replacement = 'ex: $A?.()   blah($$$ARGS)',
+          replacement_lua = 'ex: return vars.A == "blah" and "foo(" .. vim.fn.join(vars.ARGS, ", ") .. ")" or match',
+          filesFilter = 'ex: *.lua   *.{css,js}   **/docs/*.md   (specify one per line, filters via ripgrep)',
+          flags = 'ex: --help (-h) --debug-query=ast --rewrite= (empty replace) --strictness=<STRICTNESS>',
+          paths = 'ex: /foo/bar   ../   ./hello\\ world/   ./src/foo.lua   ~/.config',
+        },
+      },
+    },
+    engine = 'astgrep'
+  });
+  local function grug_file()
+    require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } })
+  end
+
+  vim.keymap.set({ "n" }, "<leader>sr",
+    grug_file,
+    { desc = "Structural find and replace" })
 end
 
 local M = {}
@@ -167,5 +196,6 @@ M.setup = function()
   setup_mini_ai()
   setup_refactoring()
   setup_indent_blankline()
+  setup_grug_far()
 end
 return M

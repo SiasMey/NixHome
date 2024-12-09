@@ -10,13 +10,15 @@ local function on_attach(upstream_on_attach)
 end
 
 local setup_lazydev = function()
-  require("lazydev").setup({
-    library = {
-      -- See the configuration section for more details
-      -- Load luvit types when the `vim.uv` word is found
-      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-    },
-  })
+  require("lazydev").setup(
+    {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      }
+    }
+  )
 end
 
 local servers = {
@@ -41,7 +43,7 @@ local servers = {
       codeAction = true,
       completion = false,
       linting = true,
-    },
+    }
   },
   rust_analyzer = {
     settings = {
@@ -52,11 +54,13 @@ local servers = {
       },
     },
   },
-  ruff = {},
-  nushell = {},
+  ruff = {
+  },
+  earthlyls = {
+  },
   nil_ls = {
     settings = {
-      ["nil"] = {
+      ['nil'] = {
         formatting = {
           command = { "nixfmt" },
         },
@@ -65,10 +69,11 @@ local servers = {
   },
   gopls = {
     settings = {
-      gofumpt = true,
-    },
+      gofumpt = true
+    }
   },
-  golangci_lint_ls = {},
+  golangci_lint_ls = {
+  },
   basedpyright = {
     settings = {
       basedpyright = {
@@ -76,9 +81,9 @@ local servers = {
         analysis = {
           autoImportCompletions = false,
           useLibraryCodeForTypes = true,
-        },
-      },
-    },
+        }
+      }
+    }
   },
   lua_ls = {
     settings = {
