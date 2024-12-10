@@ -33,6 +33,9 @@ vim.keymap.set("c", "<c-y>", "<c-m>")
 vim.keymap.set("n", "<c-d>", "<Nop>")
 vim.keymap.set("n", "<c-u>", "<Nop>")
 
+vim.keymap.set("n", "j", "<c-u>")
+vim.keymap.set("n", "k", "<c-d>")
+
 vim.keymap.set("n", "l", "k^")
 vim.keymap.set("n", "h", "j^")
 
@@ -46,8 +49,6 @@ vim.keymap.set("v", "l", "k")
 vim.keymap.set("v", "h", "j")
 
 vim.keymap.set("n", "<leader>xt", ":!chmod +x %<Enter>")
-vim.keymap.set("n", "<leader>n", ":Note<Enter>")
-vim.keymap.set("n", "<leader>t", ':silent !tmux display-popup -E -d $(pwd) -h 90\\% -w 90\\% "gitui"<Enter>')
 
 vim.keymap.set("n", "<space>b", ":silent make %<Enter>")
 vim.keymap.set("n", "<space>p", ":silent make .<Enter>")
@@ -69,16 +70,7 @@ vim.keymap.set("x", "al", ":<c-u>silent! normal! $v0<cr>", { desc = "Around curr
 vim.keymap.set("n", "w", "", { desc = "unset" })
 vim.keymap.set("n", "b", "", { desc = "unset" })
 
--- vim.keymap.set("n", "<C-M-w>", ":move-2<CR>==", { desc = "move line up" })
--- vim.keymap.set("n", "<C-M-x>", ":move+1<CR>==", { desc = "move line down" })
--- vim.keymap.set("i", "<C-M-w>", "<Esc>:move-2<CR>==gi", { desc = "move line up" })
--- vim.keymap.set("i", "<C-M-x>", "<Esc>:move+1<CR>==gi", { desc = "move line down" })
 vim.keymap.set("v", "<C-M-w>", ":move'<-2<CR>==gv", { desc = "move selection up" })
 vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection down" })
 
-vim.keymap.set(
-  "n",
-  "<leader>g",
-  ":silent !tmux neww -n gitui -d $(pwd) gitui<Enter>",
-  { desc = "Git: Create git commit" }
-)
+vim.keymap.set("n", "<leader>g", ":!tmux neww -n gitui -d $(pwd) gitui<Enter>", { desc = "Git: Create git commit" })

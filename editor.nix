@@ -108,7 +108,7 @@ in {
     ];
 
     extraLuaConfig = ''
-      require("config")
+      require("settings")
       require("plugins")
     '';
   };
