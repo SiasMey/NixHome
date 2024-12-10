@@ -48,7 +48,19 @@
 
   programs.git = {
     enable = true;
-    extraConfig = builtins.readFile ./dotfiles/git/gitconfig;
+    userName = "Sias Mey";
+    userEmail = "siasmey@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "trunk";
+      push.autoSetupRemote = true;
+      pull.rebase = true;
+      diff.tool = "${pkgs.neovim}/bin/nvim --diff";
+      core = {
+        editor = "${pkgs.neovim}/bin/nvim +startinsert";
+        autocrlf = false;
+        eol = "lf";
+      };
+    };
   };
 
   programs.direnv = {
