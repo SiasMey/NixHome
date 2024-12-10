@@ -31,20 +31,14 @@
     pkgs.terraform
     pkgs.uv
     pkgs.zig
+    pkgs.nerd-fonts.jetbrains-mono
   ];
 
   home.file = {
     # ".config/kitty".source = ./dotfiles/kitty;
   };
 
-
   programs.home-manager.enable = true;
-
-  programs.kitty = {
-    enable = true;
-    pkgs.nerd-fonts.jetbrains-mono
-  };
-
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [
@@ -68,6 +62,21 @@
         eol = "lf";
       };
     };
+  };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font";
+      size = 18;
+    };
+    settings = {
+      hide_window_decorations = true;
+      macos_option_as_alt = true;
+      macos_quit_when_last_window_closed = true;
+    };
+    themeFile = "Catppuccin-Mocha";
   };
 
   programs.direnv = {
