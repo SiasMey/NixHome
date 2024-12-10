@@ -5,7 +5,7 @@ pkgs.writeShellScriptBin "vhm" ''
   cd ~/personal/NixHome/trunk
   nvim .
   git add .
-  git commit -m "chore: update from $(uname -no) at $(date -Iseconds)"
+  git commit -m "chore: update home-manager config from $(uname -no) at $(date -Iseconds)"
 
   nh home build ~/personal/NixHome/trunk
 
