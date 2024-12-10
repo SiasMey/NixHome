@@ -9,9 +9,6 @@
     EDITOR = "nvim";
   };
 
-  fonts.packages = [
-  ];
-
   home.packages = [
     pkgs.alacritty
     pkgs.atuin
