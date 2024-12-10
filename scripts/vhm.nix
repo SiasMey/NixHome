@@ -8,7 +8,8 @@ pkgs.writeShellScriptBin "vhm" ''
   git commit -m "chore: update from $(uname -no) at $(date -Iseconds)"
 
   nh home build ~/personal/NixHome/trunk
-  git push
 
   nh home switch ~/personal/NixHome/trunk
+
+  git push
 ''
