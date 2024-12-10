@@ -10,7 +10,6 @@
   };
 
   fonts.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
   ];
 
   home.packages = [
@@ -24,7 +23,6 @@
     pkgs.fastfetch
     pkgs.gitui
     pkgs.just
-    pkgs.kitty
     pkgs.kubectl
     pkgs.mermaid-cli
     pkgs.presenterm
@@ -36,10 +34,16 @@
   ];
 
   home.file = {
-    ".config/kitty".source = ./dotfiles/kitty;
+    # ".config/kitty".source = ./dotfiles/kitty;
   };
 
+
   programs.home-manager.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    pkgs.nerd-fonts.jetbrains-mono
+  };
 
   nix = {
     package = pkgs.nix;
