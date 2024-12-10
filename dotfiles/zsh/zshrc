@@ -58,6 +58,3 @@ atuin-setup() {
     bindkey '^R' fzf-atuin-history-widget
 }
 atuin-setup
-
-# new shell without tmux, run switcher
-if [[ -z $TMUX ]]; then ts; fi
