@@ -18,5 +18,5 @@ vim.api.nvim_create_user_command("Gw", function(opts)
 end, {})
 vim.api.nvim_create_user_command("Gc", function(opts)
   _ = opts
-  vim.cmd('silent !tmux display-popup -E -d $(pwd) "git commit"')
+  vim.cmd('silent !tmux display-popup -E -n "git-commit" -d \'#{pane_current_path}\' "git commit"')
 end, {})

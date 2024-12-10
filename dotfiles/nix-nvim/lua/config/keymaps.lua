@@ -49,20 +49,6 @@ vim.keymap.set("n", "<leader>xt", ":!chmod +x %<Enter>")
 vim.keymap.set("n", "<leader>n", ":Note<Enter>")
 vim.keymap.set("n", "<leader>t", ':silent !tmux display-popup -E -d $(pwd) -h 90\\% -w 90\\% "gitui"<Enter>')
 
-vim.keymap.set(
-  "n",
-  "<leader>gc",
-  ':silent !tmux display-popup -E -d $(pwd) "git commit"<Enter>',
-  { desc = "Git: Create git commit" }
-)
-vim.keymap.set("n", "<leader>gs", ":!git status -s<Enter>", { desc = "Git: Show status" })
-vim.keymap.set(
-  "n",
-  "<leader>gl",
-  ':silent !tmux display-popup -E -d $(pwd) "git log -n 5 --pretty=medium"<Enter>',
-  { desc = "Git: Show log" }
-)
-
 vim.keymap.set("n", "<space>b", ":silent make %<Enter>")
 vim.keymap.set("n", "<space>p", ":silent make .<Enter>")
 vim.keymap.set("n", "<space>tt", ":silent TmuxTest<Enter>")
@@ -89,3 +75,12 @@ vim.keymap.set("n", "b", "", { desc = "unset" })
 -- vim.keymap.set("i", "<C-M-x>", "<Esc>:move+1<CR>==gi", { desc = "move line down" })
 vim.keymap.set("v", "<C-M-w>", ":move'<-2<CR>==gv", { desc = "move selection up" })
 vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection down" })
+
+vim.keymap.set("n", "<leader>gc", ":silent !tgc<Enter>", { desc = "Git: Create git commit" })
+vim.keymap.set("n", "<leader>gs", ":!git status -s<Enter>", { desc = "Git: Show status" })
+vim.keymap.set(
+  "n",
+  "<leader>gl",
+  ":silent !tmux display-popup -E -d '#{pane_current_path}' \"git log -n 5 --pretty=medium\"<Enter>",
+  { desc = "Git: Show log" }
+)
