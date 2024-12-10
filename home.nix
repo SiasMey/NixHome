@@ -9,6 +9,10 @@
     EDITOR = "nvim";
   };
 
+  fonts.packages = [
+    pkgs.nerd-fonts.jetbrains-mono
+  ];
+
   home.packages = [
     pkgs.alacritty
     pkgs.atuin
@@ -23,7 +27,6 @@
     pkgs.kitty
     pkgs.kubectl
     pkgs.mermaid-cli
-    pkgs.nerd-fonts.jetbrains-mono
     pkgs.presenterm
     pkgs.python3Minimal
     pkgs.rustc
