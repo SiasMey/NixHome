@@ -31,6 +31,7 @@
         ./unfree.nix
         ./editor.nix
         ./hyprland.nix
+        ./shell-scripts.nix
       ];
     };
 
