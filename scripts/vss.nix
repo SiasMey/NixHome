@@ -11,7 +11,7 @@ pkgs.writeShellScriptBin "vss" ''
   nvim "$SCRIPT_NAME.nix"
   git add "$SCRIPT_NAME.nix"
   git add ../shell-scripts.nix
-  git commit -m "chore: update $SCRIPT_NAME on $(uname -no) at $(date -Iseconds)"
+  git commit -m "chore: update $SCRIPT_NAME config \nfrom $(uname -no) at $(date -Iseconds)\n$(home-manager generations | head -n 1)"
 
   nh home build ~/personal/NixHome/trunk
 
