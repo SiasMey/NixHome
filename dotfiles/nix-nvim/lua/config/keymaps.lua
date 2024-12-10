@@ -76,11 +76,9 @@ vim.keymap.set("n", "b", "", { desc = "unset" })
 vim.keymap.set("v", "<C-M-w>", ":move'<-2<CR>==gv", { desc = "move selection up" })
 vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection down" })
 
-vim.keymap.set("n", "<leader>gc", ":silent !tgc<Enter>", { desc = "Git: Create git commit" })
-vim.keymap.set("n", "<leader>gs", ":!git status -s<Enter>", { desc = "Git: Show status" })
 vim.keymap.set(
   "n",
-  "<leader>gl",
-  ":silent !tmux display-popup -E -d '#{pane_current_path}' \"git log -n 5 --pretty=medium\"<Enter>",
-  { desc = "Git: Show log" }
+  "<leader>g",
+  ":silent !tmux neww -n gitui -d $(pwd) gitui<Enter>",
+  { desc = "Git: Create git commit" }
 )
