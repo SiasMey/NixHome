@@ -54,9 +54,9 @@
       init.defaultBranch = "trunk";
       push.autoSetupRemote = true;
       pull.rebase = true;
-      diff.tool = "${pkgs.neovim}/bin/nvim --diff";
+      diff.tool = "${programs.neovim.finalPackage}/bin/nvim -d";
       core = {
-        editor = "${pkgs.neovim}/bin/nvim +startinsert";
+        editor = "${programs.neovim.finalPackage}/bin/nvim";
         autocrlf = false;
         eol = "lf";
       };
