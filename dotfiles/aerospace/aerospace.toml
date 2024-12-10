@@ -57,11 +57,11 @@ preset = 'qwerty'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 0
-inner.vertical =   0
-outer.left =       0
-outer.bottom =     0
-outer.top =        0
-outer.right =      0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -100,6 +100,8 @@ alt-comma = 'layout accordion horizontal vertical'
 cmd-alt-ctrl-shift-n = 'exec-and-forget open -a /Applications/kitty.app'
 cmd-alt-ctrl-shift-e = 'exec-and-forget open -a /Applications/Arc.app'
 cmd-alt-ctrl-shift-i = 'exec-and-forget open -a /Applications/Slack.app'
+cmd-alt-ctrl-shift-y = 'exec-and-forget open -a /Applications/Discord.app'
+cmd-alt-ctrl-shift-. = 'exec-and-forget open -a "/Applications/Microsoft Teams.app"'
 cmd-alt-ctrl-shift-o = 'exec-and-forget open -a "/Applications/Microsoft Teams.app"'
 cmd-alt-ctrl-shift-m = 'exec-and-forget open -a "/Applications/Microsoft Outlook.app"'
 
@@ -146,7 +148,10 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
@@ -187,3 +192,7 @@ run = 'move-node-to-workspace E'
 [[on-window-detected]]
 if.app-id = 'org.zotero.zotero'
 run = 'move-node-to-workspace U'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace D'
