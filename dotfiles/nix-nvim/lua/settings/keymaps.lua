@@ -73,6 +73,9 @@ vim.keymap.set("n", "b", "", { desc = "unset" })
 vim.keymap.set("v", "<C-M-w>", ":move'<-2<CR>==gv", { desc = "move selection up" })
 vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection down" })
 
+vim.keymap.set("n", "<M-l>", vim.diagnostic.goto_prev, { desc = "goto previous diagnostic in buffer" })
+vim.keymap.set("n", "<M-h>", vim.diagnostic.goto_next, { desc = "goto next diagnostic in buffer" })
+
 vim.keymap.set("n", "<leader>gs", ":silent !tmux neww -n gitui -c $(pwd) gitui<Enter>", { desc = "Git: Show gitui" })
 vim.keymap.set(
   "n",

@@ -12,8 +12,6 @@ end
 
 function M.on_attach(client, buffer)
   local opts = { buffer = buffer }
-  vim.keymap.set("n", "<M-l>", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<M-h>", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<space>d", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
