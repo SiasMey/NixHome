@@ -66,7 +66,7 @@
     font = {
       package = pkgs.nerd-fonts.jetbrains-mono;
       name = "JetBrainsMono Nerd Font";
-      size = 20;
+      size = 18;
     };
     settings = {
       hide_window_decorations = true;
