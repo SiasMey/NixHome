@@ -112,7 +112,7 @@
           y = 0;
         };
       };
-      keyboard.binings = [
+      keyboard.bindings = [
         {
           key = "F";
           mods = "Control|Command";
