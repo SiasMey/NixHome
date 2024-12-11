@@ -112,7 +112,7 @@
           y = 0;
         };
       };
-      keydoard.binings = [
+      keyboard.binings = [
         {
           key = "F";
           mods = "Control|Command";
