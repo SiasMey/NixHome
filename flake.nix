@@ -29,6 +29,7 @@
         ./gaming.nix
         ./home.nix
         ./unfree.nix
+        ./terminal.nix
         ./editor.nix
         ./hyprland.nix
         ./shell-scripts.nix
@@ -44,6 +45,7 @@
         }
         ./home.nix
         ./unfree.nix
+        ./terminal.nix
         ./editor.nix
         ./mac.nix
         ./shell-scripts.nix
