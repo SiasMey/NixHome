@@ -74,9 +74,11 @@ vim.keymap.set("v", "<C-M-w>", ":move'<-2<CR>==gv", { desc = "move selection up"
 vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection down" })
 
 vim.keymap.set("n", "<M-l>", function()
+  print("goto prev diagnostic")
   vim.diagnostic.goto_prev()
 end, { desc = "goto previous diagnostic in buffer" })
 vim.keymap.set("n", "<M-h>", function()
+  print("goto next diagnostic")
   vim.diagnostic.goto_next()
 end, { desc = "goto next diagnostic in buffer" })
 
