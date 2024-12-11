@@ -19,7 +19,7 @@ pkgs.writeShellScriptBin "vss" ''
   echo "from: $(uname -no)" >> $temp_file
   echo "$(home-manager generations | head -n 1)" >> $temp_file
 
-  git commit -f $temp_file
+  git commit -F $temp_file
   rm $temp_file
 
   nh home build ~/personal/NixHome/trunk
