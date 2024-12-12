@@ -6,7 +6,7 @@ pkgs.writeShellScriptBin "vss" ''
   set -e
   SCRIPT_NAME=$1
 
-  cd "${home.hmFlakeDir}"
+  cd "${home.homeDir}/personal/NixHome/trunk"
   if [ -f !"$SCRIPT_NAME.nix" ]; then
     echo "{pkgs}:pkgs.writeShellScriptBin \"$SCRIPT_NAME\" \'\'\n\'\'" > "$SCRIPT_NAME.nix"
   fi
@@ -24,9 +24,9 @@ pkgs.writeShellScriptBin "vss" ''
   git commit -F $temp_file
   rm $temp_file
 
-  nh home build ${home.hmFlakeDir}
+  nh home build ${home.homeDir}/personal/NixHome/trunk
 
-  nh home switch ${home.hmFlakeDir}
+  nh home switch ${home.homeDir}/personal/NixHome/trunk
 
   git push
 ''

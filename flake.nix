@@ -24,7 +24,6 @@
         {
           home.username = "meysi";
           home.homeDirectory = "/home/meysi";
-          home.hmFlakeDir = "/home/meysi/personal/NixHome/trunk";
         }
         ./gaming.nix
         ./home.nix
