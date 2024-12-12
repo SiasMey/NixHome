@@ -1,16 +1,18 @@
-{pkgs}:
+{
+  pkgs,
+  home,
+}:
 pkgs.writeShellScriptBin "vss" ''
   set -e
   SCRIPT_NAME=$1
 
-  cd ~/personal/NixHome/trunk/scripts
+  cd "${home.hmFlakeDir}"
   if [ -f !"$SCRIPT_NAME.nix" ]; then
     echo "{pkgs}:pkgs.writeShellScriptBin \"$SCRIPT_NAME\" \'\'\n\'\'" > "$SCRIPT_NAME.nix"
   fi
 
   nvim "$SCRIPT_NAME.nix"
-  git add "$SCRIPT_NAME.nix"
-  git add ../shell-scripts.nix
+  git add .
 
   temp_file=$(mktemp)
   echo "chore: update shell script $SCRIPT_NAME" >> $temp_file
@@ -22,9 +24,9 @@ pkgs.writeShellScriptBin "vss" ''
   git commit -F $temp_file
   rm $temp_file
 
-  nh home build ~/personal/NixHome/trunk
+  nh home build ${home.hmFlakeDir}
 
-  nh home switch ~/personal/NixHome/trunk
+  nh home switch ${home.hmFlakeDir}
 
   git push
 ''

@@ -1,7 +1,6 @@
 {
   description = "Home Manager configuration";
 
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -25,6 +24,7 @@
         {
           home.username = "meysi";
           home.homeDirectory = "/home/meysi";
+          home.hmFlakeDir = "/home/meysi/personal/NixHome/trunk";
         }
         ./gaming.nix
         ./home.nix
