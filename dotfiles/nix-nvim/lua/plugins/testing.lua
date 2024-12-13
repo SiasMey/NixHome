@@ -162,6 +162,6 @@ end
 
 local M = {}
 M.setup = function()
-  setup_neotest()
+  -- setup_neotest()
 end
 return M
