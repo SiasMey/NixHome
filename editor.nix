@@ -62,7 +62,6 @@ in {
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      barbecue-nvim
       cmp-buffer
       cmp-cmdline
       cmp_luasnip
@@ -71,7 +70,6 @@ in {
       cmp-nvim-lua
       cmp-path
       conform-nvim
-      dressing-nvim
       fzf-lua
       git-conflict-nvim
       gitsigns-nvim
@@ -87,10 +85,6 @@ in {
       luasnip
       mini-nvim
       neogen
-      neotest
-      neotest-go
-      neotest-python
-      neotest-rust
       nvim-cmp
       nvim-lspconfig
       nvim-navic
@@ -102,8 +96,6 @@ in {
       nvim-treesitter.withAllGrammars
       oil-nvim
       refactoring-nvim
-      telescope-lsp-handlers-nvim
-      telescope-nvim
       tokyonight-nvim
       workspace-diagnostics
     ];
