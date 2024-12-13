@@ -72,6 +72,7 @@ local function setup_leap()
     require("leap").leap({
       targets = get_ast_nodes(),
       action = vim.api.nvim_get_mode().mode ~= "n" and select_range,
+      backwards = true,
     })
   end)
   vim.keymap.set("n", "em", function()
