@@ -30,7 +30,7 @@
   ];
 
   home.file = {
-    # ".config/kitty".source = ./dotfiles/kitty;
+    ".config/starship.toml".source = ./dotfiles/starship/starship.toml;
   };
 
   programs.home-manager.enable = true;
@@ -72,7 +72,6 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = builtins.readFile ./dotfiles/starship/starship.toml;
   };
 
   programs.bat = {
