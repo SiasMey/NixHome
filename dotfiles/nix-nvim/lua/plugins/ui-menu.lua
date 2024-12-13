@@ -31,31 +31,16 @@ local function setup_lualine()
             right = 0,
           },
         },
-        -- { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-        -- stylua: ignore
       },
       lualine_x = {
-          -- stylua: ignore
-          --[[ {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() require("noice").api.status.command.has() end,
-              color = fg("Statement")
-            },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() require("noice").api.status.mode.has() end,
-              color = fg("Constant"),
-            }, ]]
-          -- { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
-          {
-            "diff",
-            symbols = {
-              added = " ",
-              modified = "柳",
-              removed = " ",
-            },
+        {
+          "diff",
+          symbols = {
+            added = " ",
+            modified = "柳",
+            removed = " ",
           },
+        },
       },
       lualine_y = {
         {
@@ -72,11 +57,6 @@ local function setup_lualine()
           },
         },
       },
-      -- lualine_z = {
-      --   function()
-      --     return " " .. os.date("%R")
-      --   end,
-      -- },
     },
   })
 end
