@@ -14,7 +14,7 @@
       owner = "mfussenegger";
       repo = "nvim-treehopper";
       rev = "e87002968983ed23836dfad53bcf023e609db42d";
-      hash = "";
+      hash = "sha256-JLL+w66izB89XhbTY8lRTqEhgBmMzPnV013jbhZDnqU=";
     };
   };
 in {
@@ -87,7 +87,6 @@ in {
       hop-nvim
       indent-blankline-nvim
       lazydev-nvim
-      leap-ast-nvim
       leap-nvim
       lspkind-nvim
       lualine-lsp-progress
@@ -97,8 +96,6 @@ in {
       neogen
       nvim-cmp
       nvim-lspconfig
-      nvim-navic
-      nvim-nio
       nvim-notify
       nvim-treehopper
       nvim-treesitter-context
