@@ -97,7 +97,6 @@ local servers = {
 local setup_nvim_lsp = function()
   on_attach(function(client, buffer)
     require("plugins.lsp.keymaps").on_attach(client, buffer)
-    require("plugins.lsp.navigation").on_attach(client, buffer)
   end)
 
   local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
