@@ -72,6 +72,7 @@ in {
       cmp-path
       conform-nvim
       dressing-nvim
+      fzf-lua
       git-conflict-nvim
       gitsigns-nvim
       grug-far-nvim

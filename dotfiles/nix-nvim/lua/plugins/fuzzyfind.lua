@@ -52,6 +52,7 @@ local function setup_fzf_lua()
   vim.keymap.set("n", "<leader>fd", function()
     fzf_lua.treesitter()
   end, { noremap = true, silent = true })
+  fzf_lua.register_ui_select()
 end
 
 local M = {}
