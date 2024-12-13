@@ -33,19 +33,10 @@ local function setup_hop()
 end
 
 local function setup_treehopper()
-  local tsht = require("tsht")
-  tsht.config = {
-    "t",
-    "n",
-    "s",
-    "e",
-    "r",
-    "i",
-    "a",
-    "o",
-    "g",
-    "m",
-  }
+  local tsht = require("plugins.motions-treehopper")
+  vim.keymap.set("n", "M", function()
+    tsht.move({ side = "start" })
+  end)
 end
 
 local M = {}
