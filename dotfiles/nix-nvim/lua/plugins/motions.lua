@@ -27,8 +27,31 @@ local function setup_leap()
   end)
 end
 
+local function setup_hop()
+  local hop = require("hop")
+  hop.setup({ keys = "tnseriaogm" })
+end
+
+local function setup_treehopper()
+  local tsht = require("tsht")
+  tsht.config = {
+    "t",
+    "n",
+    "s",
+    "e",
+    "r",
+    "i",
+    "a",
+    "o",
+    "g",
+    "m",
+  }
+end
+
 local M = {}
 M.setup = function()
   setup_leap()
+  setup_hop()
+  setup_treehopper()
 end
 return M
