@@ -23,7 +23,11 @@ local function setup_leap()
 
   vim.keymap.set("n", "m", "<Plug>(leap)")
   vim.keymap.set("n", "M", function()
-    require("leap-ast").leap()
+    local leap_ast = require("leap-ast")
+    require("leap").leap({
+      targets = leap_ast.get_ast_nodes(),
+      action = vim.api.nvim_get_mode().mode ~= "n" and leap_ast.select_range,
+    })
   end)
   vim.keymap.set("n", "em", function()
     require("leap.remote").action()
