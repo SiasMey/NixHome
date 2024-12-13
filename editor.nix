@@ -8,6 +8,15 @@
       hash = "sha256-lBj4KUPmmhtpffYky/HpaTwY++d/Q9socp/Ys+4VeX0=";
     };
   };
+  nvim-treehopper = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-treehopper";
+    src = pkgs.fetchFromGitHub {
+      owner = "mfussenegger";
+      repo = "nvim-treehopper";
+      rev = "e87002968983ed23836dfad53bcf023e609db42d";
+      hash = "";
+    };
+  };
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -75,6 +84,7 @@ in {
       gitsigns-nvim
       grug-far-nvim
       harpoon2
+      hop-nvim
       indent-blankline-nvim
       lazydev-nvim
       leap-ast-nvim
@@ -90,6 +100,7 @@ in {
       nvim-navic
       nvim-nio
       nvim-notify
+      nvim-treehopper
       nvim-treesitter-context
       nvim-treesitter-parsers.just
       nvim-treesitter-textobjects
