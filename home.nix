@@ -17,7 +17,6 @@
     pkgs.dust
     pkgs.earthly
     pkgs.fastfetch
-    pkgs.gitui
     pkgs.just
     pkgs.kubectl
     pkgs.mermaid-cli
@@ -110,5 +109,11 @@
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
+  };
+
+  programs.gitui = {
+    enable = true;
+    keyConfig = ./dotfiles/gitui/key_bindings.ron;
+    theme = ./dotfiles/gitui/theme.ron;
   };
 }
