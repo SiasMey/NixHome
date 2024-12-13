@@ -71,6 +71,8 @@
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+    settings = builtins.readFile ./dotfiles/starship/starship.toml;
   };
 
   programs.bat = {
