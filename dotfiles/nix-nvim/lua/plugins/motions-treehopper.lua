@@ -191,16 +191,12 @@ end
 
 local function get_nodes(opts)
   local nodes
-  if opts.source then
-    return opts.source()
+  local ok
+  ok, nodes = pcall(ts_parents_from_cursor, opts)
+  if ok then
+    return nodes
   else
-    local ok
-    ok, nodes = pcall(ts_parents_from_cursor, opts)
-    if ok then
-      return nodes
-    else
-      return lsp_selection_ranges()
-    end
+    return lsp_selection_ranges()
   end
 end
 
@@ -316,4 +312,14 @@ function M.move(opts)
   end)()
 end
 
+function M.targets(opts)
+  opts = opts or {}
+  local nodes = get_nodes(nil)
+  local transform = (opts.side or "start") == "start" and node_start or node_end
+  return {
+    jump_targets = vim.tbl_map(transform, nodes),
+  }
+end
+
+require("hop").hint_with(M.targets, require("hop.defaults"))
 return M
