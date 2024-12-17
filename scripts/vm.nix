@@ -2,7 +2,7 @@
 pkgs.writeShellScriptBin "vm" ''
   set -e
 
-  cd ~/personal/NixHome/trunk/dotfiles/tmux/tmux.conf
+  cd ~/personal/NixHome/trunk/dotfiles/tmux
 
   nvim tmux.conf
   git add .
