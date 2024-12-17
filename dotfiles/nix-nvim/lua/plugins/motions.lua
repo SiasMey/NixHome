@@ -42,7 +42,7 @@ end
 local M = {}
 M.setup = function()
   setup_leap()
-  setup_hop()
-  setup_treehopper()
+  -- setup_hop()
+  -- setup_treehopper()
 end
 return M
