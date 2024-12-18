@@ -162,6 +162,10 @@ if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
+if.app-id = 'alacritty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 
