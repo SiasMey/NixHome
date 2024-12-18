@@ -28,6 +28,7 @@
     pkgs.uv
     pkgs.zig
     pkgs.nerd-fonts.jetbrains-mono
+    pkgs.vacuum-go
   ];
 
   home.file = {
