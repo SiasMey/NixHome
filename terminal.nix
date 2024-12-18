@@ -21,10 +21,8 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      general = {
-        import = ["~/.config/alacritty/themes/theme.toml"];
-        live_config_reload = true;
-      };
+      import = ["~/.config/alacritty/themes/theme.toml"];
+      live_config_reload = true;
       window = {
         decorations = "buttonless";
         startup_mode = "Fullscreen";
