@@ -166,7 +166,7 @@
         {
           key = "C";
           mods = "Command";
-          action = "ReceiveChar";
+          action = "Copy";
         }
         {
           key = "V";
@@ -177,12 +177,6 @@
         {
           key = "C";
           mods = "Control|Shift";
-          mode = "~Vi|~Search";
-          action = "ReceiveChar";
-        }
-        {
-          key = "C";
-          mods = "Command";
           mode = "~Vi|~Search";
           action = "ReceiveChar";
         }
