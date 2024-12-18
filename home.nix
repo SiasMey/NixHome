@@ -7,7 +7,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANPAGER = "bat -l man -p";
   };
 
   home.packages = [
