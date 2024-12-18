@@ -32,7 +32,7 @@
   ];
 
   home.file = {
-    ".config/starship.toml".source = ./dotfiles/starship/starship.toml;
+    # ".config/starship.toml".source = ./dotfiles/starship/starship.toml;
   };
 
   programs.home-manager.enable = true;
