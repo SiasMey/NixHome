@@ -166,11 +166,13 @@ if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
+# if.app-id = 'com.tinyspeck.slackmacgap'
+if.app-name-regex-substring = "Slack"
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
+# if.app-id = 'com.microsoft.teams2'
+if.app-name-regex-substring = "Microsoft Teams"
 run = 'move-node-to-workspace M'
 
 [[on-window-detected]]
