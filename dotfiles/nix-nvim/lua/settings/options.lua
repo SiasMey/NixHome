@@ -66,3 +66,10 @@ vim.g.markdown_recommended_style = 0
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+vim.filetype.add({
+  pattern = {
+    ["openapi.*%.ya?ml"] = "yaml.openapi",
+    ["openapi.*%.json"] = "json.openapi",
+  },
+})
