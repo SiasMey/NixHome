@@ -14,9 +14,16 @@
     themeFile = "Catppuccin-Mocha";
   };
 
+  home.file = {
+    ".config/alacritty/themes/theme.toml".source = ./dotfiles/alacritty/solarized_light.toml;
+  };
+
   programs.alacritty = {
     enable = true;
     settings = {
+      general = {
+        import = ["~/.config/alacritty/themes/theme.toml"];
+      };
       live_config_reload = true;
       window = {
         decorations = "buttonless";
