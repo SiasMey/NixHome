@@ -98,7 +98,7 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # cmd-alt-ctrl-shift-n = 'exec-and-forget open -a /Applications/kitty.app'
-cmd-alt-ctrl-shift-n = 'exec-and-forget open -a /Applications/Alacritty.app'
+cmd-alt-ctrl-shift-n = 'exec-and-forget open -a ~/.nix-profile/bin/alacritty'
 cmd-alt-ctrl-shift-e = 'exec-and-forget open -a /Applications/Arc.app'
 cmd-alt-ctrl-shift-i = 'exec-and-forget open -a /Applications/Slack.app'
 cmd-alt-ctrl-shift-y = 'exec-and-forget open -a /Applications/Discord.app'
