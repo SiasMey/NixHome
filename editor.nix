@@ -104,7 +104,7 @@ in {
       nvim-treesitter.withAllGrammars
       oil-nvim
       refactoring-nvim
-      tokyonight-nvim
+      solarized-nvim
       workspace-diagnostics
     ];
 

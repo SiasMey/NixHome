@@ -14,7 +14,7 @@ end
 local function setup_lualine()
   require("lualine").setup({
     options = {
-      theme = "gruvbox",
+      theme = "solarized",
       globalstatus = true,
       disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
     },
