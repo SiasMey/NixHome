@@ -53,7 +53,7 @@ in {
     pkgs.typos-lsp
     pkgs.uv
     pkgs.yaml-language-server
-    pkgs.yq
+    pkgs.yq-go
   ];
 
   programs.fzf = {
