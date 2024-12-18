@@ -68,6 +68,7 @@ local servers = {
       gofumpt = true,
     },
   },
+  vacuum = {},
   golangci_lint_ls = {},
   basedpyright = {
     settings = {
