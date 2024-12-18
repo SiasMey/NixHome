@@ -7,6 +7,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
   };
 
   home.packages = [
@@ -76,6 +77,9 @@
 
   programs.bat = {
     enable = true;
+    config = {
+      theme = "Solarized (light)";
+    };
   };
 
   programs.zoxide = {
