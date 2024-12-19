@@ -24,7 +24,6 @@ M.setup = function()
     -- Add specific highlight groups
     on_highlights = function(highlights, colors)
       -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
-      highlights.TreesitterContext.bg = colors.white
     end,
   })
   -- Set colorscheme to NeoSolarized
