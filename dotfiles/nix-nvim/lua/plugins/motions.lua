@@ -21,6 +21,10 @@ local function setup_leap()
     end,
   })
 
+  vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+  vim.api.nvim_set_hl(0, "LeapMatch", { fg = "magenta", bold = true, italic = true, nocombine = true })
+  vim.api.nvim_set_hl(0, "LeapLabel", { fg = "red", bold = true, italic = true, nocombine = true })
+
   vim.keymap.set("n", "m", "<Plug>(leap)")
   vim.keymap.set("n", "em", function()
     require("leap.remote").action()
