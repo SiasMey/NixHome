@@ -56,7 +56,6 @@ local function setup_lualine()
             mac = "", -- e711
           },
         },
-        opt.cmdheight = 0
       },
     },
   })
@@ -65,6 +64,6 @@ end
 local M = {}
 M.setup = function()
   setup_nvim_notify()
-  setup_lualine()
+  -- setup_lualine()
 end
 return M
