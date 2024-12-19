@@ -47,7 +47,7 @@
           family = "JetBrainsMono Nerd Font Mono";
           style = "Italic";
         };
-        size = 18;
+        size = 19;
         offset = {
           x = 0;
           y = 0;
