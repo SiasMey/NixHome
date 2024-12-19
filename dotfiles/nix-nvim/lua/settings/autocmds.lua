@@ -61,3 +61,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<C-y>", "<cmd>wq<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = augroup("colorscheme"),
+  callback = function()
+    -- if vim.g.colors_name == "NeoSolarized" then
+    vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "LeapMatch", { fg = "magenta", bold = true, italic = true, nocombine = true })
+    vim.api.nvim_set_hl(0, "LeapLabel", { fg = "red", bold = true, italic = true, nocombine = true })
+    -- end
+  end,
+})
