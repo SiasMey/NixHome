@@ -56,6 +56,7 @@ local function setup_lualine()
             mac = "", -- e711
           },
         },
+        opt.cmdheight = 0
       },
     },
   })

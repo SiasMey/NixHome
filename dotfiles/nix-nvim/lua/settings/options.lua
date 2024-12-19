@@ -45,9 +45,9 @@ opt.colorcolumn = { 80, 100 }
 opt.splitbelow = true
 opt.splitright = true
 opt.hlsearch = false
--- opt.iskeyword:remove("_")
 opt.number = true -- Print line number
 opt.relativenumber = false -- Relative line numbers
+opt.cmdheight = 0
 
 if false then
   opt.foldmethod = "expr"

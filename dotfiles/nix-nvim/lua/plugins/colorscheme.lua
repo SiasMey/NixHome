@@ -1,5 +1,5 @@
 local M = {}
 M.setup = function()
-  require("solarized").set()
+  vim.cmd("colorscheme NeoSolarized")
 end
 return M
