@@ -32,7 +32,8 @@
   ];
 
   home.file = {
-    # ".config/starship.toml".source = ./dotfiles/starship/starship.toml;
+    ".config/starship.toml".source = ./dotfiles/starship/starship.toml;
+    ".config/tmux/theme.conf".source = ./dotfiles/tmux/theme.conf;
   };
 
   programs.home-manager.enable = true;
