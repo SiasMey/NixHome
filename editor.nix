@@ -17,6 +17,15 @@
       hash = "sha256-JLL+w66izB89XhbTY8lRTqEhgBmMzPnV013jbhZDnqU=";
     };
   };
+  neo-solarized-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "neo-solarized-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Tsuzat";
+      repo = "NeoSolarized.nvim";
+      rev = "bdfcdd056c4c73b10fc6f42f0c2d0df839ff49ae";
+      hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
+    };
+  };
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -94,6 +103,7 @@ in {
       luasnip
       mini-nvim
       neogen
+      neo-solarized-nvim
       nvim-cmp
       nvim-lspconfig
       nvim-notify
