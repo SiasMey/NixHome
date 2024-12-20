@@ -28,7 +28,7 @@ local servers = {
   },
   typos_lsp = {
     init_options = {
-      -- config = "~/.config/typos"
+      config = "~/.config/typos/typos.toml",
       diagnosticSeverity = "Error",
     },
   },
