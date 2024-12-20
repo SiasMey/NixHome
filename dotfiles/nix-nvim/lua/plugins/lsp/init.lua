@@ -20,6 +20,7 @@ local setup_lazydev = function()
 end
 
 local servers = {
+  vale_ls = {},
   openscad_lsp = {
     settings = {},
   },
