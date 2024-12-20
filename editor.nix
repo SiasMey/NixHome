@@ -63,6 +63,9 @@ in {
     pkgs.uv
     pkgs.yaml-language-server
     pkgs.yq-go
+    pkgs.vale.withStyles
+    (s: [s.google s.alex s.write-good s.proselint s.readability])
+    pkgs.vale-ls
   ];
 
   programs.fzf = {
