@@ -182,7 +182,7 @@
       bind = $mainMod, F, exec, $fileManager
       bind = $mainMod SHIFT, E , exit,
 
-      bind = $hyper, N, exec, $focus-or-start alacritty alacritty
+      bind = $hyper, N, exec, $focus-or-start alacritty Alacritty
       bind = $hyper, E, exec, $focus-or-start firefox firefox
       bind = $hyper, I, exec, $focus-or-start webcord WebCord
       bind = $hyper, M, exec, $focus-or-start steam steam
