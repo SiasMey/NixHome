@@ -21,6 +21,9 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      env = {
+        TERM = "xterm-kitty";
+      };
       general = {
         import = ["~/.config/alacritty/themes/theme.toml"];
         live_config_reload = true;
@@ -47,7 +50,7 @@
           family = "JetBrainsMono Nerd Font Mono";
           style = "Italic";
         };
-        size = 19;
+        size = 16;
         offset = {
           x = 0;
           y = 0;
