@@ -24,6 +24,7 @@
         {
           home.username = "meysi";
           home.homeDirectory = "/home/meysi";
+          workloads.cad.enabled = true;
         }
         ./gaming.nix
         ./home.nix
@@ -32,6 +33,7 @@
         ./editor.nix
         ./hyprland.nix
         ./shell-scripts.nix
+        ./cad
       ];
     };
 
