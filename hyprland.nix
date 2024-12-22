@@ -186,7 +186,7 @@
       bind = $hyper, E, exec, $focus-or-start firefox firefox
       bind = $hyper, I, exec, $focus-or-start webcord WebCord
       bind = $hyper, M, exec, $focus-or-start steam steam
-      bind = $hyper, J, exec, $focus-or-start lutris lutris
+      bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
       bind = $mainMod CTRL, f, fullscreen
       bind = $mainMod CTRL, s, layoutmsg, swapwithmaster auto
 

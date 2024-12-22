@@ -6,7 +6,7 @@
     pkgs.protonup
     pkgs.lutris
     pkgs.webcord
-    pkgs.wineWowPackages.unstable
+    # pkgs.wineWowPackages.unstable
     pkgs.winetricks
     pkgs.wineWowPackages.waylandFull
   ];
