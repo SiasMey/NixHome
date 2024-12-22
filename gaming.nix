@@ -7,7 +7,7 @@
     pkgs.lutris
     pkgs.webcord
     pkgs.wineWowPackages.unstable
-    pkgs.wineticks
+    pkgs.winetricks
   ];
 
   home.sessionVariables = {
