@@ -238,7 +238,7 @@
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
       windowrulev2 = workspace 5,class:^(steam)$
-      windowrulev2 = workspace 6,class:^(lutris)$
+      windowrulev2 = workspace 6,class:lutris
 
       # Ignore maximize requests from apps. You'll probably like this.
       windowrulev2 = suppressevent maximize, class:.*
