@@ -6,6 +6,8 @@
     pkgs.protonup
     pkgs.lutris
     pkgs.webcord
+    pkgs.wineWowPackages.unstable
+    pkgs.wineticks
   ];
 
   home.sessionVariables = {
