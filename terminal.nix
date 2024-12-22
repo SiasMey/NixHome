@@ -32,6 +32,7 @@
         decorations = "buttonless";
         startup_mode = "Fullscreen";
         option_as_alt = "Both";
+        dynamic_padding = true;
         padding = {
           x = 0;
           y = 0;
