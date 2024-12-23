@@ -234,6 +234,7 @@
 
       # Example windowrule v2
       windowrulev2 = workspace 1,class:^(kitty)$,title:^(kitty)$
+      windowrulev2 = workspace 1,class:^(Alacritty)$,title:^(Alacritty)$
       windowrulev2 = workspace 2,class:^(firefox)$
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
