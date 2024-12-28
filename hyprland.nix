@@ -182,8 +182,10 @@
       bind = $mainMod, F, exec, $fileManager
       bind = $mainMod SHIFT, E , exit,
 
-      bind = $hyper, N, exec, $focus-or-start alacritty Alacritty
-      bind = $hyper, E, exec, $focus-or-start firefox firefox
+      # bind = $hyper, N, exec, $focus-or-start alacritty Alacritty
+      bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
+      # bind = $hyper, E, exec, $focus-or-start firefox firefox
+      bind = $hyper, E, exec, $focus-or-start zen zen-beta
       bind = $hyper, I, exec, $focus-or-start webcord WebCord
       bind = $hyper, M, exec, $focus-or-start steam steam
       bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
@@ -235,7 +237,9 @@
       # Example windowrule v2
       windowrulev2 = workspace 1,class:^(kitty)$,title:^(kitty)$
       windowrulev2 = workspace 1,class:^(Alacritty)$,title:^(Alacritty)$
+      windowrulev2 = workspace 1,class:^(com.mitchellh.ghostty)$
       windowrulev2 = workspace 2,class:^(firefox)$
+      windowrulev2 = workspace 2,class:^(zen-beta)$
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
       windowrulev2 = workspace 5,class:^(steam)$
