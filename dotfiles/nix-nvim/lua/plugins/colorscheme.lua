@@ -15,8 +15,8 @@ M.setup = function()
       -- Style to be applied to different syntax groups
       comments = { italic = true },
       keywords = { italic = true },
-      functions = { bold = true },
-      variables = {},
+      functions = { bold = true, italic = true },
+      variables = { bold = true },
       string = { italic = true },
       underline = true, -- true/false; for global underline
       undercurl = true, -- true/false; for global undercurl
