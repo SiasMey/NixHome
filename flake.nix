@@ -33,7 +33,7 @@
           ];
           home.username = "meysi";
           home.homeDirectory = "/home/meysi";
-          workloads.cad.enabled = true;
+          workloads.cad.enabled = false;
         }
         ./gaming.nix
         ./home.nix

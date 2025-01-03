@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   home.packages = [
     # # gaming
-    pkgs.gamescope
-    pkgs.mangohud
+    # pkgs.gamescope
+    # pkgs.mangohud
     pkgs.protonup
     pkgs.lutris
     pkgs.webcord
