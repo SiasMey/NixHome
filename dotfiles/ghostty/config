@@ -3,4 +3,6 @@ window-padding-color=extend
 window-decoration=false
 fullscreen=true
 theme=Builtin Solarized Light
+font-size=18
+window-inherit-font-size=false
 
