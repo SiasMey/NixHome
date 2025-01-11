@@ -40,7 +40,6 @@
         ./terminal.nix
         ./editor.nix
         ./shell-scripts.nix
-        # ./gaming.nix
         ./hyprland.nix
         ./cad
       ];
@@ -57,8 +56,8 @@
         ./unfree.nix
         ./terminal.nix
         ./editor.nix
-        ./mac.nix
         ./shell-scripts.nix
+        ./mac.nix
       ];
     };
   };
