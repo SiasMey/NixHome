@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = [
-    pkgs.networkmanagerapplet
     pkgs.hyprshot
     pkgs.hyprpicker
   ];
@@ -48,9 +47,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
-      monitor=,preferred,auto,auto
+      monitor=DP-1,2560x1440@120.00,auto,auto
 
-      $terminal = kitty
+      $terminal = ghostty
       $fileManager = dolphin
       $menu = rofi -show drun -show-icons
       $focus-or-start = ~/.config/hypr/focus-or-start.sh

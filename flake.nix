@@ -35,13 +35,13 @@
           home.homeDirectory = "/home/meysi";
           workloads.cad.enabled = false;
         }
-        ./gaming.nix
         ./home.nix
         ./unfree.nix
         ./terminal.nix
         ./editor.nix
-        ./hyprland.nix
         ./shell-scripts.nix
+        # ./gaming.nix
+        ./hyprland.nix
         ./cad
       ];
     };
