@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   home.file = {
+    ".config/ghostty/config".source = ./dotfiles/ghostty/config;
+  };
+
+  home.file = {
     ".config/alacritty/themes/theme.toml".source = ./dotfiles/alacritty/solarized_light.toml;
   };
 
