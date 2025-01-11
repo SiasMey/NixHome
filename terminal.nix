@@ -1,19 +1,4 @@
 {pkgs, ...}: {
-  programs.kitty = {
-    enable = true;
-    font = {
-      package = pkgs.nerd-fonts.jetbrains-mono;
-      name = "JetBrainsMono Nerd Font";
-      size = 18;
-    };
-    settings = {
-      hide_window_decorations = true;
-      macos_option_as_alt = true;
-      macos_quit_when_last_window_closed = true;
-    };
-    themeFile = "Catppuccin-Mocha";
-  };
-
   home.file = {
     ".config/alacritty/themes/theme.toml".source = ./dotfiles/alacritty/solarized_light.toml;
   };
